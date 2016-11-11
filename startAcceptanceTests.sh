@@ -125,15 +125,13 @@ GLOBAL:
 -a  |--applogdir - define the location where stream & task logs will be written
 -b  |--binder - define the binder to use for the test (i.e. RABBIT, KAFKA)
 -j  |--jarurl - which jar to use? Defaults to 1.1.0.BUILD-SNAPSHOT
--h  |--healthhost - what is your health host? where is docker? defaults to localhost
+-h  |--healthhost - what is your host you are running SCDF? where is docker? defaults to localhost
 -l  |--numberoflines - how many lines of logs of your app do you want to print? Defaults to 1000
 -ke |--killattheend - should kill all the running apps at the end of execution? Defaults to "no"
 -n  |--killnow - should not run all the logic but only kill the running apps? Defaults to "no"
--x  |--skiptests - should skip running of e2e tests? Defaults to "no"
 -s  |--skipdownloading - should skip downloading the Data Flow Jar. Defaults to "no"
 -sb |--skipbinder - should skip starting rabbit docker instance. Defaults to "no"
 -d  |--skipdeployment - should skip deployment of apps? Defaults to "no"
--a  |--deployonlyapps - should deploy only the brewery business apps instead of the infra too? Defaults to "no"
 
 EOF
 }
@@ -197,14 +195,8 @@ case ${key} in
     KILL_NOW="yes"
     KILL_NOW_APPS="yes"
     ;;
-    -x|--skiptests)
-    NO_TESTS="yes"
-    ;;
     -s|--skipdownloading)
     SKIP_DOWNLOADING="yes"
-    ;;
-    -a|--deployonlyapps)
-    DEPLOY_ONLY_APPS="yes"
     ;;
     -d|--skipdeployment)
     SKIP_DEPLOYMENT="yes"
@@ -247,10 +239,8 @@ NUMBER_OF_LINES_TO_LOG=${NUMBER_OF_LINES_TO_LOG}
 KILL_AT_THE_END=${KILL_AT_THE_END}
 KILL_NOW=${KILL_NOW}
 KILL_NOW_APPS=${KILL_NOW_APPS}
-NO_TESTS=${NO_TESTS}
 SKIP_DOWNLOADING=${SKIP_DOWNLOADING}
 ACCEPTANCE_TEST_OPTS=${ACCEPTANCE_TEST_OPTS}
-DEPLOY_ONLY_APPS=${DEPLOY_ONLY_APPS}
 SKIP_DEPLOYMENT=${SKIP_DEPLOYMENT}
 SKIP_BINDER=${SKIP_BINDER}
 
@@ -270,7 +260,6 @@ export KILL_NOW_APPS=${KILL_NOW_APPS}
 export LOCALHOST=${LOCALHOST}
 export MEM_ARGS=${MEM_ARGS}
 export ACCEPTANCE_TEST_OPTS=${ACCEPTANCE_TEST_OPTS}
-export DEPLOY_ONLY_APPS=${DEPLOY_ONLY_APPS}
 export SKIP_DEPLOYMENT=${SKIP_DEPLOYMENT}
 export SKIP_BINDER=${SKIP_BINDER}
 export JAVA_PATH_TO_BIN=${JAVA_PATH_TO_BIN}
@@ -348,12 +337,6 @@ fi
 
 # ======================================= Running acceptance tests =======================================
 TESTS_PASSED="no"
-
-if [[ ${NO_TESTS} ]] ; then
-    echo -e "\nSkipping end to end tests"
-    kill_all_apps_if_switch_on
-    exit 0
-fi
 
 if [[ "${READY_FOR_TESTS}" == "yes" ]] ; then
     echo -e "\n\nSuccessfully booted up all the apps. Proceeding with the acceptance tests"
