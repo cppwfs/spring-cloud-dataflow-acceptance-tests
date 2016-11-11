@@ -75,25 +75,29 @@ acceptance tests
  as the binder for a acceptance tests run.
 
 == Acceptance Tests
-All stream acceptance tests inherit from the a common AbstractStreamTests class
+All stream acceptance tests inherit from the a common AbstractStreamTests class,
 that offers utility methods for testing as well as handles the creation of
-Stream objects so that upon failures a log can be dumped upon the failure of the
-application.
+Stream objects so that upon failures a log can be dumped for each of the
+applications in the stream.
 The current tests that have been written are the:
 
-* HttpSourceTests tests the http source in a stream.
-* TapTests that includes test for pulling off topics as well as stream taps.
 * TickTockTests creates a TickTock stream and evaluates that it is deployed and
 working.
+* HttpSourceTests tests the http source in a stream.
+* TapTests that includes tests for topics as well as stream taps.
 
 == What's Next:
 
 * While hooks have been added to support Kafka.  These need to be flushed out
 including adding a start-peripherals-KAFKA.sh script for starting a Kafka
 Docker Container.
-* Need to add support processors to the Stream Acceptance Tests
+* Need to add support for processors to the Stream Acceptance Tests
 * Need to add support for task Acceptance Tests
 * Need to abstract out the local centric portions startAcceptanceTests and
-have that as a platform that is supported like CF, K8's etc.
+have them as a platform that is supported like CF, K8's etc.
 * Add support for pulling in files that are written by sinks and conversely put
 files for sources.
+* Rename serverURL to serverHost
+* Support for MySQL for JDBC and Task based Acceptance tests
+* Add Support for running CF acceptance tests on PCF/PCF-Dev
+* Create CI Environment for running local acceptance tests

@@ -43,6 +43,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
 
 /**
+ * Abstract base class that is used by stream acceptance tests.  This class
+ * contains commonly used utility methods for acceptance tests as well as the
+ * ability to dump logs of apps when a stream acceptance test fails.
  * @author Glenn Renfro
  */
 @RunWith(SpringRunner.class)
@@ -91,7 +94,7 @@ public abstract class AbstractStreamTests implements InitializingBean {
 	/**
 	 * A TestWatcher that will write the logs for the failed apps in the
 	 * streams that were registered. Also destroys all streams regardless if
-	 * the test was successfull or failed.
+	 * the test was successful or failed.
 	 */
 	@Rule
 	public TestWatcher testResultHandler = new TestWatcher() {
@@ -207,8 +210,8 @@ public abstract class AbstractStreamTests implements InitializingBean {
 	}
 
 	/**
-	 * Awaits for the stream to be deployed once deployed the function returns
-	 * control else it throws an IllegalStateException.
+	 * Waits for the stream to be deployed and once deployed the function
+	 * returns control else it throws an IllegalStateException.
 	 * @param streamName the name of the stream that is to be monitored.
 	 */
 	protected void streamAvailable(String streamName) {
