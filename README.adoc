@@ -86,7 +86,7 @@ working.
 * HttpSourceTests tests the http source in a stream.
 * TapTests that includes tests for topics as well as stream taps.
 
-== What's Next:
+== What's Next ->Stories:
 
 * While hooks have been added to support Kafka.  These need to be flushed out
 including adding a start-peripherals-KAFKA.sh script for starting a Kafka
@@ -98,6 +98,7 @@ have them as a platform that is supported like CF, K8's etc.
 * Add support for pulling in files that are written by sinks and conversely put
 files for sources.
 * Rename serverURL to serverHost
-* Support for MySQL for JDBC and Task based Acceptance tests
+* Support for MySQL local deployment for JDBC and Task based Acceptance tests
 * Add Support for running CF acceptance tests on PCF/PCF-Dev
+* Create Repository for SCDF Acceptance Tests
 * Create CI Environment for running local acceptance tests
