@@ -1,0 +1,4 @@
+mysql:
+  image: openzipkin/zipkin-mysql:1.14.1
+  ports:
+    - 3306:3306
