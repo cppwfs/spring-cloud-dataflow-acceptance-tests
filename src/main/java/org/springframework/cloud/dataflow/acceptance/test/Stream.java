@@ -15,9 +15,9 @@
  *
  */
 
-package org.springframework.cloud.dataflow.acceptance.test.util;
+package org.springframework.cloud.dataflow.acceptance.test;
 
-import org.springframework.cloud.dataflow.rest.client.AppRegistryOperations;
+import org.springframework.cloud.dataflow.acceptance.test.Application;
 import org.springframework.util.Assert;
 
 /**

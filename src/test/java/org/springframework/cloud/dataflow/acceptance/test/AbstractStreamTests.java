@@ -33,8 +33,6 @@ import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.dataflow.acceptance.test.util.Application;
-import org.springframework.cloud.dataflow.acceptance.test.util.Stream;
 import org.springframework.cloud.dataflow.rest.client.AppRegistryOperations;
 import org.springframework.cloud.dataflow.rest.client.DataFlowTemplate;
 import org.springframework.cloud.dataflow.rest.client.StreamOperations;

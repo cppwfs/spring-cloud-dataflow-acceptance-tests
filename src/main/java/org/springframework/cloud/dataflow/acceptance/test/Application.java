@@ -15,7 +15,7 @@
  *
  */
 
-package org.springframework.cloud.dataflow.acceptance.test.util;
+package org.springframework.cloud.dataflow.acceptance.test;
 
 import java.util.HashMap;
 import java.util.List;

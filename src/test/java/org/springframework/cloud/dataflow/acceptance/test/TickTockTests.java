@@ -17,19 +17,9 @@
 
 package org.springframework.cloud.dataflow.acceptance.test;
 
-import java.util.UUID;
-
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
-import org.springframework.cloud.dataflow.acceptance.test.util.Application;
-import org.springframework.cloud.dataflow.acceptance.test.util.Stream;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assume.assumeTrue;
 
 /**
  * @author Glenn Renfro

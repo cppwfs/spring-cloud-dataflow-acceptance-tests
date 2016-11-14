@@ -2,8 +2,6 @@ package org.springframework.cloud.dataflow.acceptance.test;
 
 import org.junit.Test;
 
-import org.springframework.cloud.dataflow.acceptance.test.util.Stream;
-
 import static org.junit.Assert.assertTrue;
 
 /**
