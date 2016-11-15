@@ -33,7 +33,9 @@ public class HttpSourceTests extends AbstractStreamTests {
 		stream.setSink("log");
 		stream.setSource("http --port=9000");
 		stream.setDefinition(stream.getSource() + " | " +stream.getSink());
+
 		deployStream(stream);
+
 		httpPostData(stream.getSource(), 9000, "1341241234");
 		waitForMillis(2000);
 		String result = getLog(stream.getSink());
